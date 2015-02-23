@@ -1,0 +1,8 @@
+{% if site.stackexchange_user_name %}
+<section>
+<h1>Stack Exchange</h1>
+<a href="http://stackexchange.com/users/{{site.stackexchange_user_id}}">
+<img src="http://stackexchange.com/users/flair/{{site.stackexchange_user_id}}.png" width="208" height="58" alt="profile for {{ site.stackexchange_user_name }} on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+</a>
+</section>
+{% endif %}
