@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Two Simple-minded Utility Programs: catf and wcf
+tags: C Linux
 ---
 
 # Two Simple-minded Utility Programs: catf and wcf #

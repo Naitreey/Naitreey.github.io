@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Simulate the Magnetic Field of a Solenoid
+tags: Linux 
 ---
 
 # A Miserable Failure on Home Folder Encryption #

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Ridiculously Complicated Structure
+tags: C
 ---
 
 # A Ridiculously Complicated Structure #
