@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Simulate the Magnetic Field of a Solenoid
+title: A Miserable Failure on Home Folder Encryption
 tags: Linux 
 ---
-
-# A Miserable Failure on Home Folder Encryption #
 
 A couple days ago, I decided to re-install and upgrade Ubuntu, as I really want to reach the latest versions of many developer tools and softwares etc., without having to compile their source codes from scrath. (And being my first attempt on Unix, I have pretty messed up many things during this trial period.) So I wanna start over.
 

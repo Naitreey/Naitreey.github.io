@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Simulate the Magnetic Field of a Solenoid
+tags: [Mathematica, Simulation]
 ---
-
-#Simulate the Magnetic Field of a Solenoid#
 
 This post should have original been the answer to an similar titled question on [Mathematica.SE][Mma.SE]. However, the time I was about to answer, the question has been put on hold by its low apparent quality. So I'll leave it here.
 

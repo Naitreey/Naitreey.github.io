@@ -4,7 +4,6 @@ title: A Ridiculously Complicated Structure
 tags: C
 ---
 
-# A Ridiculously Complicated Structure #
 Learning structure in C, I constructed the following structure. Yes, I was just testing how far my logic can go...
 
 ```c
