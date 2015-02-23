@@ -76,7 +76,7 @@ Now we can get some visual impression by:
 
 ![][plot1]
 
-[plot1]: 
+[plot1]: https://github.com/Naitreey/Naitreey.github.io/blob/master/_posts/Physics/simulate-solenoid/Simulate%20Solenoid1.png
 
 Some warning messages were generated during the plotting, which I think are caused by singularity occurred near the current. But I was too lazy to scrutinize in detail.
 
@@ -94,4 +94,8 @@ This is the result:
 
 ![][plot2]
 
-[plot2]:
+[plot2]: https://github.com/Naitreey/Naitreey.github.io/blob/master/_posts/Physics/simulate-solenoid/Simulate%20Solenoid2.png
+
+The complete _Mathematica_ notebook file can be found [here][nb].
+
+[nb]: https://github.com/Naitreey/Naitreey.github.io/blob/master/_posts/Physics/simulate-solenoid/Simulate%20Solenoid.nb
