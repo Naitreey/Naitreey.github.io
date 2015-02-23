@@ -1,10 +1,8 @@
 ---
 layout: post
 title: Two Simple-minded Utility Programs: catf and wcf
-tags: C Linux
+tags: [C, Linux]
 ---
-
-# Two Simple-minded Utility Programs: catf and wcf #
 
 I wrote two very simple programs (oh please, if you really call them that way.) as an exercise for my ongoing C programming study. One is my version of `cat` and another is `wc`.
 `cat` and `wc` are simple command-line utilities shipped with Linux. 
