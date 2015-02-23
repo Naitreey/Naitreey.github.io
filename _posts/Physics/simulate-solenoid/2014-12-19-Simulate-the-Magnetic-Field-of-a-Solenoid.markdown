@@ -74,7 +74,7 @@ Now we can get some visual impression by:
     Thread[{points, field}];
     ListStreamPlot[%]
 
-![](https://raw.githubusercontent.com/Naitreey/Naitreey.github.io/master/_posts/Physics/simulate-solenoid/Simulate%20Solenoid1.png)
+![](Simulate Solenoid1.png)
 
 Some warning messages were generated during the plotting, which I think are caused by singularity occurred near the current. But I was too lazy to scrutinize in detail.
 
@@ -90,7 +90,7 @@ The simple idea presented above succeeding, we can simply shift the sample point
 
 This is the result:
 
-![](https://raw.githubusercontent.com/Naitreey/Naitreey.github.io/master/_posts/Physics/simulate-solenoid/Simulate%20Solenoid2.png)
+![](Simulate Solenoid2.png)
 
 The complete _Mathematica_ notebook file can be found [here][nb].
 
