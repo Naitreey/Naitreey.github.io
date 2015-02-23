@@ -90,7 +90,7 @@ The simple idea presented above succeeding, we can simply shift the sample point
 
 This is the result:
 
-![](Simulate-Solenoid2.png)
+![](https://github.com/Naitreey/Naitreey.github.io/blob/master/_posts/Physics/simulate-solenoid/Simulate-Solenoid2.png)
 
 The complete _Mathematica_ notebook file can be found [here][nb].
 
