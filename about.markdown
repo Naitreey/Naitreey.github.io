@@ -16,7 +16,7 @@ I learn, therefore I progress.
 
 ### More Info
 
-Blog setup:
+Blog setup: This blog currently has problem displaying math properly. Hope to fix it soon.
 
 ### Contact me
 
