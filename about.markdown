@@ -8,13 +8,15 @@ I was a physics undergraduate, who had no choice but learn everything almost ent
 
 I like Unix and Vim.
 
-I write primarily in \LaTeX. I also find markdown very easy to use.
+I write primarily in `\LaTeX`. I also find markdown very easy to use.
 
 C is powerful. Mathematica is awesome.
 
 I learn, therefore I progress.
 
-### More Information
+###
+
+Blog setup:
 
 ### Contact me
 
