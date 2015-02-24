@@ -14,7 +14,7 @@ C is powerful. Mathematica is awesome.
 
 I learn, therefore I progress.
 
-###
+### More Info
 
 Blog setup:
 

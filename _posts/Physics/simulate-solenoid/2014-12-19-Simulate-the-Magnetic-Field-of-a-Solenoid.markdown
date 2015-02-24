@@ -16,11 +16,10 @@ Simulation of the magnetic field of a solenoid should be easy. Since a solenoid 
 
 ###Circular Current###
 
-Based on Biot-Savart law, the magnetic field of a current element $$\mathrm{d}\vec{l}$$ is:
+Based on Biot-Savart law, the magnetic field of a current element \\( \mathrm{d}\vec{l} \\) is:
 
-$$
-\mathrm{d}\vec{B}=\frac{\mu_0I\mathrm{d}\vec{l}\times\hat{e}_r}{4\pi r^2}
-$$
+$$\mathrm{d}\vec{B}=\frac{\mu_0I\mathrm{d}\vec{l}\times\hat{e}_r}{4\pi r^2}$$
+\\[\mathrm{d}\vec{B}=\frac{\mu_0I\mathrm{d}\vec{l}\times\hat{e}_r}{4\pi r^2}\\]
 
 Since the current has rotational symmetry, so does the field of it. Thus we need only compute the the field on a cross section of the current. Let it be the $$y$$-$$z$$ axis plane.
 
@@ -28,7 +27,7 @@ An analysis of the direction of field shows that, on every point of $$y$$-$$z$$ 
 
 Assume the radius of current $$R$$ and the angular parameter $$\theta$$ starting at $$x$$ axis, increasing by the right-hand rule.
 
-Now compute the field at $$(0,y,z)$$ on the $$x$$-$z$ plane.
+Now compute the field at $$(0,y,z)$$ on the $$x$$-$$z$$ plane.
 
 For an arbitrary current element $$\mathrm{d}l$$ at $$(R,\theta)$$,
 
