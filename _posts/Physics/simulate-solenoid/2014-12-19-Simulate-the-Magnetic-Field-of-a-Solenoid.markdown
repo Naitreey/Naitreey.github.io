@@ -74,7 +74,8 @@ Now we can get some visual impression by:
     Thread[{points, field}];
     ListStreamPlot[%]
 
-![](https://github.com/Naitreey/Naitreey.github.io/blob/master/_posts/Physics/simulate-solenoid/Simulate-Solenoid1.png?raw=true)
+![](https://github.com/Naitreey/Naitreey.github.io/raw/master/_posts/Physics/simulate-solenoid/Simulate-Solenoid1.png)
+
 
 Some warning messages were generated during the plotting, which I think are caused by singularity occurred near the current. But I was too lazy to scrutinize in detail.
 
