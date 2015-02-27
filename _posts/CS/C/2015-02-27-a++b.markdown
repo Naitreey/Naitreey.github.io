@@ -1,0 +1,57 @@
+---
+layout: post
+title: "理解 a++b 的意义: A Light Shed on The Internals of Compilers"
+---
+
+今天面试时遇到一道题, 大意是
+
+```c
+int a=1, b=2;
+int c=a+++b;
+```
+
+问 `c` 的值是多少. 听说此题很经典, 不幸的是我却没答对. 利用我从 _C Primer Plus_ 中学到的仅有的 C 语言知识, 我无法判断这个表达式的值. 我以为这表达式 undefined, 结果我错了.
+答案是它和
+
+```c
+c=(a++)+b;
+```
+
+是相同的. 撇开这种问题有没有实际意义不谈 (废话, 当然没意义. Ken 发明 C 语言不是为了写这种可笑的表达式的.) I just _can not_ possibly understand this. 
+网上搜到了一些解释, 真正让我想明白的是 StackOverflow 上的[这个][Q]问题和答案.
+
+[Q]: http://stackoverflow.com/questions/19121048/why-and-how-ab-is-interpreted-as-a-b-and-not-a-b?lq=1
+
+原来这个问题不是_如何运算_的问题. 考虑算符的优先级、结合性, 以及 operands 的运算顺序等等都是没用的. 现在的问题是如何理解 `+++` 这个组合.
+事实上这是一个_语义分析_问题.
+
+编译器中有这么两个结构: lexical analyzer and parser.
+前者负责将输入的源文件 (注意源文件是 text file, 由字符编码组成) 转换为内部 token; 后者负责对 tokens 进行解释. (说到这里, 让我想起了 TeX 的编译机制似乎也是这样的嘛.)
+也就是说例如你源码里有写
+
+```c
+a++;
+```
+
+lexical analyzer 看见这个字符序列, 将它识别为类似 `a` 和 `++` 的两个 token; parser 看见这两个 token 将它们解释为 "a 自加 1" 这个运算.
+
+根据以上 StackOverflow 链接中的解释, Lexical analyzer 有三个特点: 
+
+1. The lexical analyzer is short-sighted -- it has minimal "look-ahead". 即最多只向前看一个字符.
+2. The lexical analyzer is greedy -- it tries to make the longest token it can right now. 即它会先尝试把两个字符看作一个组合, 如果不行才拆开对待.
+3. The lexical analyzer does not backtrack trying to find alternate solutions when one fails.
+
+此外还有一个重要因素, lexical analyzer 看到这些字符的顺序是_从左至右_的. 根据这三个特点, 我们可以看出 `a+++b` 将被识别为
+
+```c
+a,++,+,b
+```
+
+四个 token.
+随后, parser 将这个 token sequence 解释为
+
+```c
+(a++)+b
+```
+
+并进行运算.
