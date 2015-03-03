@@ -3,6 +3,7 @@ layout: post
 title: Vim-LaTeX Feature Round Up
 tag: [vim,latex]
 ---
+
 This is mostly an answer to a question on [Vi.SE](http://vi.stackexchange.com/questions/2047/what-are-the-differences-between-tex-plugins).
 
 There are _many_ features present in Vim-LaTeX. I don't remember all of them. I'll just talk about features that I know and use constantly.
