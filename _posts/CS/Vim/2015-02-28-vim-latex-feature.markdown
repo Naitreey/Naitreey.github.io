@@ -1,8 +1,7 @@
 ---
-title: Vim-LaTeX Feature Round Up
 layout: post
+title: Vim-LaTeX Feature Round Up
 tag: [vim,latex]
-category: CS
 ---
 This is mostly an answer to a question on [Vi.SE](http://vi.stackexchange.com/questions/2047/what-are-the-differences-between-tex-plugins).
 
