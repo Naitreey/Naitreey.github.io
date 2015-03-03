@@ -4,9 +4,7 @@ layout: post
 tag: [vim,latex]
 category: CS
 ---
-
-I can't do comparison, as Vim-LaTeX is the only LaTeX plugin I've used. I have been using Vim-LaTeX for almost a year.
-So I will talk about Vim-LaTeX alone.
+This is mostly an answer to a question on [Vi.SE](http://vi.stackexchange.com/questions/2047/what-are-the-differences-between-tex-plugins).
 
 There are _many_ features present in Vim-LaTeX. I don't remember all of them. I'll just talk about features that I know and use constantly.
 
@@ -21,15 +19,17 @@ Note: These are _my limited user experience_, which may be _very misleading_. I'
 
 - Built-in insert mode key mappings are implemented as `IMAP()` calls. For example, you can find a long list of useful `IMAP()` calls in `main.vim` file:
 
-    call IMAP ('__', '_{<++>}<++>', "tex")
-    call IMAP ('()', '(<++>)<++>', "tex")
-    call IMAP ('[]', '[<++>]<++>', "tex")
-    call IMAP ('{}', '{<++>}<++>', "tex")
-    ...
-    call IMAP ('((', '\left( <++> \right)<++>', "tex")
-    call IMAP ('[[', '\left[ <++> \right]<++>', "tex")
-    call IMAP ('{{', '\left\{ <++> \right\}<++>', "tex")
-    ...
+```vim
+call IMAP ('__', '_{<++>}<++>', "tex")
+call IMAP ('()', '(<++>)<++>', "tex")
+call IMAP ('[]', '[<++>]<++>', "tex")
+call IMAP ('{}', '{<++>}<++>', "tex")
+...
+call IMAP ('((', '\left( <++> \right)<++>', "tex")
+call IMAP ('[[', '\left[ <++> \right]<++>', "tex")
+call IMAP ('{{', '\left\{ <++> \right\}<++>', "tex")
+...
+```
 
 Then when you type say `()`, the cursor will reside automatically between the parenthese, replacing the first `<++>`. After you finished typing inside, you kick `<C-j>` and bang, the cursor will move out of parenthese and you just keep typing forward. Once you are used to it, it begins to form a typing flow which is kinda addictive...
 
@@ -39,11 +39,13 @@ One major glitch of `IMAP()` and `<C-j>` thing is that *they messes up your last
 
 - You can do all kinds of mappings using `IMAP()`, from simple key mappings to more complex templating. Here are some examples of my mappings (`ftplugin/tex.vim`):
 
-    call IMAP('*EEQ',"\\begin{equation*}\<CR><++>\<CR>\\end{equation*}<++>",'tex')
-    call IMAP('DEF',"\\begin{definition}[<++>]\<CR><++>\<CR>\\end{definition}<++>",'tex')
-    call IMAP('BIC','\binom{<++>}{<++>}<++>','tex')
-    call IMAP('PVERB','\PVerb{<++>}<++>','tex')
-    call IMAP('VERB','\verb|<++>|<++>','tex')
+```vim
+call IMAP('*EEQ',"\\begin{equation*}\<CR><++>\<CR>\\end{equation*}<++>",'tex')
+call IMAP('DEF',"\\begin{definition}[<++>]\<CR><++>\<CR>\\end{definition}<++>",'tex')
+call IMAP('BIC','\binom{<++>}{<++>}<++>','tex')
+call IMAP('PVERB','\PVerb{<++>}<++>','tex')
+call IMAP('VERB','\verb|<++>|<++>','tex')
+```
 
 - An interesting fact about `imaps.vim` plugin is that it's a global plugin, which implies its potential usage beyond LaTeX. Indeed, I do use `<++>` and `<C-j>` jumppings (combining with other plugins) to build code snippet templates in C.
 
@@ -52,17 +54,21 @@ One disadvantage of `IMAP()` is that the key combination can not be used in norm
 
 - In Insert/Normal Mode, when the cursor is attaching a word or is in the word, pressing `<F5>` will by default insert a basic environment of the form
 
-    \begin{word}
-    
-    \end{word}<++>
+```latex
+\begin{word}
+
+\end{word}<++>
+```
 
  based on the word; pressing `<F7>` will by default insert a basic inline command of the form `\word{}<++>` based on the word. 
 
 - "By default", I mean you can customize the behavior of a specific word when triggered by `<F5>`/`<F7>`. Here are some of my settings (`.vimrc`):
 
-    let g:Tex_Com_newcommand = "\\newcommand{<++>}[<++>]{<++>}<++>"
-    let g:Tex_Com_latex = "{\\LaTeX}<++>"
-    let g:Tex_Com_D = "\\D{<++>}{<++>}<++>"
+```vim
+let g:Tex_Com_newcommand = "\\newcommand{<++>}[<++>]{<++>}<++>"
+let g:Tex_Com_latex = "{\\LaTeX}<++>"
+let g:Tex_Com_D = "\\D{<++>}{<++>}<++>"
+```
 
 - In Insert/Normal Mode, when the cursor is _not_ attached to anything (a.k.a _alone_), pressing `<F5>`/`<F7>` will prompt to you a menu to select environment/command to insert. Or you can type the name of desired environment/command at the bottom. Personally, I rarely use `<F5>`/`<F7>` this way.
 
@@ -80,25 +86,29 @@ One disadvantage of `IMAP()` is that the key combination can not be used in norm
 
 Sometimes the built-in mappings have just gone too far or are not quit what you want. You can override the built-in mappings by redefining them in `after/ftplugin/tex.vim`:
 
-    call IMAP('`|','\abs{<++>}<++>','tex')
-    call IMAP('ETE',"\\begin{table}\<CR>\\centering\<CR>\\caption{<+Caption text+>}\<CR>\\label{tab:<+label+>}\<CR>\\begin{tabular}{<+dimensions+>}\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>",'tex')
-    call IMAP('==','==','tex')
-    call IMAP('`\','`\','tex')
+```vim
+call IMAP('`|','\abs{<++>}<++>','tex')
+call IMAP('ETE',"\\begin{table}\<CR>\\centering\<CR>\\caption{<+Caption text+>}\<CR>\\label{tab:<+label+>}\<CR>\\begin{tabular}{<+dimensions+>}\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>",'tex')
+call IMAP('==','==','tex')
+call IMAP('`\','`\','tex')
+```
 
 # Set Multiple Compilation Engine #
 I always need to switch between `pdflatex` and `xelatex` engine. Thus, I have the following lines in my `.vimrc`:
 
-    "switch to pdflatex
-    function SetpdfLaTeX()
-    	let g:Tex_CompileRule_pdf = 'pdflatex --interaction=nonstopmode -synctex=1 -src-specials $*'
-    endfunction
-    noremap <Leader>lp :<C-U>call SetpdfLaTeX()<CR>
-    
-    "switch to xelatex
-    function SetXeLaTeX()
-    	let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode -synctex=1 -src-specials $*'
-    endfunction
-    noremap <Leader>lx :<C-U>call SetXeLaTeX()<CR>
+```vim
+"switch to pdflatex
+function SetpdfLaTeX()
+	let g:Tex_CompileRule_pdf = 'pdflatex --interaction=nonstopmode -synctex=1 -src-specials $*'
+endfunction
+noremap <Leader>lp :<C-U>call SetpdfLaTeX()<CR>
+
+"switch to xelatex
+function SetXeLaTeX()
+	let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode -synctex=1 -src-specials $*'
+endfunction
+noremap <Leader>lx :<C-U>call SetXeLaTeX()<CR>
+```
 
 # View PDF, Forward and Backward Search between Vim and PDF viewer #
 This is a messy and complicated topic. With certain PDF viewer and _a certain amount of luck_, it can be very easy. But it's mainly a matter of google search.
