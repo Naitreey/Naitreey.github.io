@@ -27,7 +27,7 @@ call IMAP ('{}', '{<++>}<++>', "tex")
 ...
 call IMAP ('((', '\left( <++> \right)<++>', "tex")
 call IMAP ('[[', '\left[ <++> \right]<++>', "tex")
-call IMAP ('{{', '\left\{ <++> \right\}<++>', "tex")
+call IMAP ('{ {', '\left\{ <++> \right\}<++>', "tex")
 ...
 ```
 
